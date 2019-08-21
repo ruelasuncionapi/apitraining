@@ -1,0 +1,5 @@
+{
+    "weather": "put your openweather map key here",
+    "map": "put your Google Static Map key here",
+    "news": "put your News API key here"
+}

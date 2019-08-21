@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ city }}</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+
+        <h1>About {{ city }}</h1>
+        <hr>
+        <table>
+            <tr>
+                <td> 
+                    <!--
+                    <img src="/map.jpg" alt="placeholder">
+                    -->
+                    <img src="/map?lat={{coord.lat}}&lon={{coord.lon}}" alt="">
+                </td>
+                <td>
+                    {{#each weather}}
+                        <div class="center-line">
+                            <img src="http://openweathermap.org/img/w/{{this.icon}}.png" alt="">
+                            <div>
+                                <span> <b>{{this.main}}</b> </span>
+                                <span>{{ this.description }}</span>
+                            </div>
+                        </div>
+                    {{/each}}
+                    <div>
+                        Current: {{ temperature.temp}}C
+                    </div>
+                    <div>
+                        Min: {{ temperature.temp_min}}C
+                    </div>
+                        Max: {{ temperature.temp_max}}C
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            {{#each news}}
+                <tr>
+                    <td>
+                        <img src="{{this.urlToImage}}" height="128px">
+                    </td>
+                    <td style="border: 1px solid black; padding: 8px;">
+                        <h3>{{this.title}}</h3>
+                        <div>By <i>{{this.author}}</i>, <code>{{this.publishedAt}}</code></div>
+                        <p><i>{{this.description}}</i></p>
+                        <p>{{this.content}}</p>
+                        <div><a href="{{this.url}}" target="_blank">View full article</a></div>
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+        
+    </body>
+</html>

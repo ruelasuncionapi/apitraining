@@ -1,0 +1,28 @@
+{
+  "name": "workshop03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "consul": "^0.34.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-cache-controller": "^1.1.0",
+    "express-json-validator-middleware": "^2.0.0",
+    "express-openapi-validator": "^1.2.1",
+    "express-preconditions": "^1.0.5",
+    "express-range": "^2.0.1",
+    "mongodb": "^3.2.7",
+    "path": "^0.12.7",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "0.0.16-4.0.3"
+  }
+}
