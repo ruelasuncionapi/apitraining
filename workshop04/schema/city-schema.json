@@ -1,0 +1,43 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "city",
+    "type": "object",
+    "definitions": {
+        "states": {
+            "type": "string",
+            "enum": [ 
+                "MA", "RI", "NH", "ME", "VT", "CT", "NY", "NJ", 
+                "PA", "DE", "DC", "MD", "VA", "WV", "NC", "SC", 
+                "GA", "FL", "AL", "TN", "MS", "KY", "OH", "IN", 
+                "MI", "IA", "WI", "MN", "SD", "ND", "MT", "IL", 
+                "MO", "KS", "NE", "LA", "AR", "OK", "TX", "CO", 
+                "WY", "ID", "UT", "AZ", "NM", "NV", "CA", "HI", 
+                "OR", "WA", "AK", "SG"
+            ]
+        }
+    },
+    "properties": {
+        "_id": {
+            "type": "string"
+        },
+        "city": {
+            "type": "string"
+        },
+        "loc": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+        },
+        "pop": {
+            "type": "number",
+            "minimum": 10
+        },
+        "state": {
+            "$ref": "#/definitions/states"
+        }
+    },
+    "required": [ "city", "pop", "loc", "state" ]
+}
