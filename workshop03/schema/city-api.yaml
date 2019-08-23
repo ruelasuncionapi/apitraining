@@ -1,0 +1,66 @@
+openapi: "3.0.2"
+info:
+    title: "Cities API"
+    description: "My API for cities"
+    version: "v1.0"
+servers:
+- url: http://localhost:3000
+  description: "Development server"
+- url: http://localhost:4000
+  description: "UAT server"
+components:
+    schemas:
+        stateList: 
+            description: "List of all the states"
+            type: array
+            items:
+                $ref: "#/components/schemas/state"
+        state:
+            description: "States"
+            type: string
+            enum: [ 
+                "MA", "RI", "NH", "ME", "VT", "CT", "NY", "NJ", 
+                "PA", "DE", "DC", "MD", "VA", "WV", "NC", "SC", 
+                "GA", "FL", "AL", "TN", "MS", "KY", "OH", "IN", 
+                "MI", "IA", "WI", "MN", "SD", "ND", "MT", "IL", 
+                "MO", "KS", "NE", "LA", "AR", "OK", "TX", "CO", 
+                "WY", "ID", "UT", "AZ", "NM", "NV", "CA", "HI", 
+                "OR", "WA", "AK", "SG"
+            ]
+paths:
+    /api/states:
+        get:
+            description: "Returns a list of all the states"
+            operationId: getStates
+            responses:
+                200:
+                    description: "List of all states"
+                    content:
+                        "application/json":
+                            schema:
+                                $ref: "#/components/schemas/stateList"
+    /api/state/{stateId}:
+        get:
+            description: "Returns a list of cities from the state"
+            operationId: getCtitesByState
+            parameters:
+            - name: stateId
+              in: path
+              required: true
+              schema:
+                $ref: "city-schema.json#/definitions/states"
+            responses:
+                206:
+                    description: "Partial list of cities"
+                    content:
+                        "application/json":
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                400:
+                    description: "Error"
+                    content:
+                        "text/plain":
+                            schema:
+                                type: string
