@@ -18,7 +18,7 @@
   "homepage": "https://github.com/chukmunnlee/ssf_day05_review#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^5.3.1",
     "request": "^2.88.0",
     "uuid": "^3.3.2"
   }
